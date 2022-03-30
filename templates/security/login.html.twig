@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P'titJardinier | Connexion{% endblock %}
+
+{% block body %}
+<div class="content_ctn_devis">
+<form class="form-control w-50 d-flex  flex-lg-column align-items-center justify-content-center border-success mx-auto" method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+       <div class="alert alert-info">Vous etes déja connecté en tant que {{ app.user.username }}</div> 
+        <h3> </h3>
+         <a  class="btn btn-danger" href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% else %}
+
+    <h1 class="h3 mb-3 font-weight-normal">Connexion !</h1>
+    <label for="inputUsername">Nom d'utilisateur</label>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control w-50" autocomplete="username" required autofocus>
+    <label for="inputPassword">Mot de passe </label>
+    <input type="password" name="password" id="inputPassword" class="form-control w-50" autocomplete="current-password" required>
+    <a href="/inscription">Pas encore inscrit ?</a>
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <button class="btn btn-success btn-primary mt-5 mb-3 w-25" type="submit">
+        Valider
+    </button>
+    {% endif %}
+</form>
+</div>
+{% endblock %}

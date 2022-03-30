@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P'titJardinier | Liste des devis{% endblock %}
+
+{% block body %}
+<div class="content_ctn">
+        <div class="optn_line_ctn">
+            <a class="optn_btn_link" href="{{ path('devis') }}">
+            Retour à la gestion du panier
+            <img src="{{ asset('img/arrow.png')}}">
+            </a>  
+        </div>
+        <table id="customclient_table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Utilisateur</th>
+                <th style="with:400px">Haie(s)</th>
+                <th>Montant</th>
+                {# <th>Actions</th> #}
+            </tr>
+        </thead>
+        <tbody>
+        {% for devi in devis %}
+            <tr class="table_client_line">
+                <td>{{ devi.date |date('d-m-Y') }}</td>
+                <td>{{devi.utilisateur.username}}</td> 
+                <td>
+                <details>
+            <summary>Voir les haies</summary>
+            {% for tailler in devi.taillers %}
+                {{tailler.getHaie().getNom}} : ⬌ {{tailler.getLongueur}}m ⬍ {{tailler.Hauteur}}m<br>
+            {% endfor %}
+            </details>
+                </td>
+                <td>{{devi.prix}}€</td> 
+                 {# <td>
+                 <a class="link_icon" href="{{ path('delete_devis', {'id': devi.id}) }}">
+                    <img src="{{ asset('img/delete.png')}}">
+                </a
+                 </td>  #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun devis</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    {% endblock %}

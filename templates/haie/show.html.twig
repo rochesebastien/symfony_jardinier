@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Haie{% endblock %}
+
+{% block body %}
+    <div class="content_ctn">
+    <div class="show_client_ctn">
+    <h1>Détails de la haie {{haie.nom}} <img class="icon" src="{{ asset('img/hedge.png')}}"></h1>
+
+    <table class="table table-secondary w-75">
+        <tbody>
+            <tr>
+                <th>Code</th>
+                <td>{{ haie.code }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ haie.nom }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ haie.categorie.libelle }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ haie.prix }}</td>
+            </tr>
+        </tbody>
+    </table>
+<div class="d-flex w-50 mx-auto justify-content-around align-items-center mb-4">
+    <a class="btn btn-primary mt-2" href="{{ path('haie_index') }}">Retour</a>
+
+    <a class="btn btn-success mt-2" href="{{ path('haie_edit', {'id': haie.code}) }}">Modifier</a>
+
+    {{ include('haie/_delete_form.html.twig') }}
+</div>
+{% endblock %}

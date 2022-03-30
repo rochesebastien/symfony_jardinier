@@ -1,0 +1,45 @@
+.form__main{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    width: 30%;
+    padding: 10px 0px;
+    border:2px solid #227c07;
+    border-radius:10px;
+}
+
+.form__main input[type="text"]{
+    width: 70%;
+    border:2px solid #2d3b2a;
+    padding:10px;
+    margin-top: 5px ;
+}
+
+.form__main select{
+    width: 69%;
+    border:2px solid #2d3b2a;
+    padding:10px;
+    margin-top: 5px;
+}
+
+.form__main input[type="submit"]{
+    width: 20%;
+}
+
+.form_main input[type="text"]{
+    border:2px solid #2d3b2a;
+    padding:10px;
+    margin-top: 5px ;
+}
+
+.form_main select{
+    width: 69%;
+    border:2px solid #2d3b2a;
+    padding:10px;
+    margin-top: 5px;
+}
+
+.form__main input[type="submit"]{
+    width: 20%;
+}

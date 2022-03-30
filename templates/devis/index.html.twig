@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P'titJardinier | Devis Panier{% endblock %}
+
+{% block body %}
+    <div class="content_ctn_devis">
+        <div class="content_ctn__devis">
+    <div class="promo_ctn">
+        <img src="{{ asset('img/promo.png')}}">
+        <h1>           
+            {% if app.user.typeclient %}
+            Promotion de <span>10%</span> pour les <span>entreprises</span>
+            {% else %}
+            Aucune promotion pour les particuliers
+            {% endif %}
+        </h1>
+    </div>
+     
+    <div class="form_devis_ajout_ctn">
+   
+    {% if is_granted('ROLE_ADMIN') %}
+    <div class="optn_line_ctn">
+                <a class="optn_btn_link" href="{{ path('devis_liste') }}">
+                Administrer les devis
+                <img src="{{ asset('img/invoice_see.png')}}">
+                </a>  
+    </div>
+    {% endif %}
+        <form action=" {{ path('devis') }}" method="post">
+            
+            <h1>Ajouter une haie à votre panier !</h1>
+            <select name="haie_select_devis" required>
+            <option value="" selected disabled>Selectionner votre haie....</option>
+            {% for haie in haies %}
+               <option value="{{haie.getId()}}">{{haie.getNom()}}</option>
+            {% endfor %}
+            </select>
+            <input type="text" placeholder="Hauteur" name="hauteur" required>
+            <input type="text" placeholder="Longueur" name="longueur" required>
+            <button class="btn btn-success" type="submit">Ajouter au panier</button>
+        </form>
+    </div>
+
+</div>
+    <div class="devis_cart_ctn ">
+        <h2>Panier de {{app.user.prenom}} :</h2>
+        <div class="devis_cart">
+            {% for tailler in taillers %}
+         <div class="cart_row">
+                <p>
+                
+                    <span class="cart_row_name">x1 {{tailler.getHaie().getNom()}}
+                        <span class="cart_row_info">
+                            ⬌ {{tailler.getLongueur()}}m | ⬍ {{tailler.getHauteur()}}m
+                        </span> 
+                        
+                    </span>
+                    <span class="cart_row_prix">
+                    {% if tailler.getHauteur() > 1.5 %}
+                       {{ tailler.getHaie().getPrix() * tailler.getLongueur() * 1.5 }} 
+                     {% else %}
+                         {{ tailler.getHaie().getPrix() * tailler.getLongueur() }} 
+                    {% endif %}
+                    €</span>
+                </p>
+               
+                <a class="link_icon" href="{{ path('devis_remove', {'id': loop.index - 1 }) }}">
+                    <img src="{{ asset('img/delete.png')}}">
+                </a>
+            </div>
+            <div class="cart_divider"></div>
+         {% else %}
+        <div class="cart_row">
+               Aucune commande
+            </div>
+         {% endfor %}
+        </div>
+        <div class="cart_result">
+            <p class="cart_info"> Prix : 
+                {% if app.user.typeclient %}
+                <strike>{{prixT}}€ </strike>
+                (-10%) 
+                <span class="cart_prix">{{prixT - (prixT * 0.1)}}€</span>     
+                    {% else %}
+                    <span class="cart_prix">{{prixT}}€</span>     
+                    {% endif %}  
+            </p>
+        <form action="{{ path('devis_add') }}" method="post">
+           <button class="btn btn-success" type="submit" onsubmit="return confirm('Etes-vous sur de vouloir valider de panier ?')">Valider le panier</button>
+        </form>
+        </div>
+    </div>
+    </div>
+
+    {% endblock %}

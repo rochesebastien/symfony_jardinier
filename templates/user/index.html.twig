@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P'titJardinier | Les Clients{% endblock %}
+
+{% block body %}
+    <div class="content_ctn">
+        <div class="optn_line_ctn">
+            <a class="optn_btn_link" href="{{ path('app_inscription') }}">
+            Ajouter un client
+            <img src="{{ asset('img/add.png')}}">
+            </a>
+            <form action="{{ path('user_search') }}" method="post">
+                <input class="input_search" type="search" name="search_user" placeholder="Nom d'un client...">
+            </form>
+            <a class="home_btn_client" href="{{ path('user_index') }}">
+                <img src="{{ asset('img/home.png')}}">
+            </a>
+        </div>
+         {% if error %}
+        <div class="alert alert-danger" role="alert">
+        Veuillez d'abord supprimer le devis qui correspond au client
+        </div>
+     {% endif %}
+    <table id="customclient_table">
+        <thead>
+            <tr>
+                <th>Nom d'utilisateur</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Cp</th>
+                <th>Type du client</th>         
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr class="table_client_line">
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.adresse }}</td>
+                    <td>{{ user.ville }}</td>
+                    <td>{{ user.cp }}</td>
+                    <td>{{ user.typeclient ? 'Entreprise' : 'Particulier' }}</td>
+                    <td>
+                    <a class="link_icon" href="{{ path('user_show', {'id': user.id}) }}">
+                            <img src="{{ asset('img/eye.png')}}">
+                            </a>
+                            <a class="link_icon" href="{{ path('user_edit', {'id': user.id}) }}">
+                            <img src="{{ asset('img/editing.png')}}">
+                            </a>
+                    </td>
+                </tr>
+                 {% else %}
+                  <tr>
+                    <td colspan="11">Aucun client trouvé</td>
+                </tr> 
+
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

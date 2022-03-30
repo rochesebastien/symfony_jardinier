@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P'titJardinier | Devis Panier{% endblock %}
+
+{% block body %}
+<div class="content_ctn_devis">
+    <div class="devis_card_ctn mx-auto">
+        <div class="devis_card_logo">
+            <img src="{{ asset('img/logo_text.png')}}">
+        </div>
+    <div  class="devis_card_info">
+        <span class="float-end">{{app.user.nom}}</span>
+        <span class="float-end">{{app.user.prenom}}</span>
+        <span class="float-end">{{app.user.adresse}}</span>
+        <span class="float-end">{{app.user.cp}}</span><br>
+        <span class="float-end">{{app.user.ville}}</span>
+    </div>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Haie</th>
+                <th>Prix unitaire</th>
+                <th>Longueur</th>
+                <th>Hauteur</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for haie in haies %}
+            <tr class="table_client_line">
+                <td>{{haie.getHaie.getNom}}</td>
+                <td>{{haie.getHaie.getPrix}}</td>
+                <td>{{haie.getLongueur}}</td>
+                <td>{{haie.getHauteur}}</td>
+                {% if haie.getHauteur > 1.5 %}
+                    <td>{{ haie.getHaie.getPrix * haie.getLongueur * 1.5}}</td>
+                {% else %}
+                    <td>{{ haie.getHaie.getPrix * haie.getLongueur }}</td>
+                {% endif %}
+            </tr>            
+    {% endfor %}              
+        </tbody>
+    </table>
+    <hr>
+    <div class="devis_result_ctn">
+        <div class="date">Créé le : {{date}}</div>
+        <div class="price">Prix à payer : {{prixT}} €</div>
+    </div>
+    
+    </div>
+</div>
+
+{% endblock %}

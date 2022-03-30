@@ -1,0 +1,228 @@
+
+.content_ctn_devis{
+  margin: 1em auto;
+  width: 100%;
+  font: 18px/1.5 sans-serif;
+  display:flex;
+ 
+}
+
+.content_ctn__devis{
+  font: 18px/1.5 sans-serif;
+  display:flex;
+  flex-direction:column;
+  width: 75%;
+    border-right: 3px solid #2d3b2a;
+    height: 94vh;
+    align-items: center;
+}
+
+
+
+.promo_ctn{
+  height:150px;
+  width:80%;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  border-bottom:5px solid #6caa5e;
+}
+
+.promo_ctn h1{
+  font-weight:bold;
+  font-size:150%;
+  display:flex;
+  align-items: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.promo_ctn span{
+ color:green;
+ margin: 0px 5px;
+}
+
+.promo_ctn img{
+  height:80%;
+}
+
+
+.form_devis_ajout_ctn {
+    width:75%;
+    height:94vh;
+  }
+  
+  .form_devis_ajout_ctn form {
+    height:80%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  .form_devis_ajout_ctn input[type="text"] {
+    padding:10px;
+    border:2px solid #2d3b2a;
+    margin: 10px 0px;
+  }
+  
+  .form_devis_ajout_ctn input[type="submit"] {
+    padding:10px;
+    border:2px solid #2d3b2a;
+    margin: 10px 0px;
+  }
+  
+  .form_devis_ajout_ctn select {
+    padding:10px;
+    border:2px solid #2d3b2a;
+    margin: 10px 0px;
+  }
+  
+  /* Panier */
+  .devis_cart_ctn{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-between;
+  width:25%;
+  }
+  
+  .devis_cart{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .devis_cart_ctn h2{
+    border-bottom:3px solid #2d3b2a;
+    text-align: center;
+  }
+  
+  .cart_divider{
+    background-color: rgb(80, 78, 78);
+    height:1.5px;
+    width: 90%;
+    margin: 3px;
+  }
+  
+  .cart_row{
+    width:100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .cart_row p{
+   margin: 0px;
+   width: 75%;
+   display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-right: 2px solid green;
+  }
+  
+  .cart_row_name{
+    color:black;
+    font-size:20px;
+    margin-left: 5px;
+    display:flex;
+    flex-direction: column;
+  }
+
+  .cart_row_info{
+    color:#40473e;
+    font-size:15px;
+  }
+  
+  .cart_row_prix{
+    color:green;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:22px;
+  }
+  
+  .cart_info{
+    margin-left: 5px;
+    font-size:18px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .cart_prix{
+    color:green;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:28px;
+  }
+  
+  .cart_result{
+    width:100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
+  /* Devis */
+  .devis_card_ctn{
+    width:50%;
+    border-radius: 20px;
+    border:2px solid #2d3b2a;
+    background-color:#e8e8e9;
+  }
+  
+  .devis_card_logo{
+    width:100%;
+    height:80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 15px;
+  }
+  
+  .devis_card_logo img{
+    height:100%;
+    margin-left: 20px;
+  }
+  
+  .devis_card_logo span{
+    font-size:200%;
+  }
+  
+  .devis_card_info{
+    
+  }
+  
+  .devis_card_ctn table{
+    width:80%;
+    margin: 0 auto;
+    border: 2px solid #2d3b2a;
+    }
+  
+  .devis_card_ctn thead{
+  background-color:#2d3b2a;
+  color: white;
+  }
+  
+  .devis_result_ctn{
+    display: flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom: 10px;
+  }
+  
+  .devis_result_ctn .price{
+    margin-right: 20px;
+  }
+  
+  .devis_result_ctn .date{
+    margin-left: 20px;
+  }
+
+  .devis_card_info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10px;
+  }

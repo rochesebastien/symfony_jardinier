@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Haie{% endblock %}
+
+{% block body %}
+<div class="content_ctn">
+    <div class="optn_line_ctn">
+        <a class="optn_btn_link" href="{{ path('haie_index') }}">
+        Retour à la liste des haies
+        <img src="{{ asset('img/arrow.png')}}">
+        </a>
+        
+     </div>
+
+    {{ include('haie/_form.html.twig') }}
+</div>
+{% endblock %}

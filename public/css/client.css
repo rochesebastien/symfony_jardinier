@@ -1,0 +1,67 @@
+
+/* CSS Client */
+.show_client_ctn{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    border-radius: 10px;
+    border:2px solid #227c07;
+    margin-top: 50px;
+  }
+  
+  .table_client{
+   border-collapse: collapse;
+   border:2px solid #2d3b2a;
+  }
+  
+  .table_client th{
+    background-color:#2d3b2a;
+    color:#f1f1f1;
+   }
+  
+   
+  .table_client tr, th ,td {
+    padding:5px;
+   }
+  
+  .table_client tr, th ,td {
+    padding:5px;
+    border-right: 2px solid #2d3b2a;
+   }
+
+   
+ #customclient_table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+    border: 3px solid #2d3b2a;
+  }
+  
+  #customclient_table td, #customclient_table th {
+    border: 1px solid #f1f1f1;
+    padding: 8px;
+  }
+  
+  #customclient_table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customclient_table tr:hover {background-color: #ddd;}
+  
+  #customclient_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #2d3b2a;
+    color: white;
+  }
+  
+  #customclient_table tr:nth-last-child(){
+    background-color:red;
+  }
+  
+  .table_client_line td:last-child{
+    display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  }

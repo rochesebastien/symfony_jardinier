@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}P'titJardinier | Haie{% endblock %}
+
+{% block body %}
+<div class="content_ctn">
+    <div class="optn_line_ctn">
+        <a class="optn_btn_link" href="{{ path('haie_index') }}">
+        Retour à la liste des haies
+        <img src="{{ asset('img/arrow.png')}}">
+        </a>   
+     </div>
+
+     <form class="form__main" action="" method="post">
+         <h1>Ajouter une catégorie</h1>
+         <input type="text" name="libelle" id="" placeholder="Entrer le nom de votre catégorie" required>
+         <input class="btn btn-success mt-2 " type="submit"></input>
+     </form>
+
+
+
+</div>
+{% endblock %}

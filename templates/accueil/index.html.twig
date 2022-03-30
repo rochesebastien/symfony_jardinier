@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}P'titJardinier | Accueil{% endblock %}
+
+{% block body %}
+
+<div class="content_ctn">
+    <div class="accueil_ctn">
+    <div class="blur_bg"></div>
+    <h1>&#10086; 
+    {% if app.user %}
+     Hey, {{app.user.prenom}}
+     {% else %}
+     Le petit jardinier
+    {% endif %}
+    &#10086;</h1>
+    <p>La société Le p'tit Jardinier a pour activité l'entretien des jardins pour les particuliers et les organisations. Etant contactée fréquemment pour des devis de taille de haies, elle souhaite mettre en place une application Web permettant à toute personne d'obtenir un tarif. </p>
+    </div>
+    
+    <img class="main_bg" src="{{ asset('img/test.jpeg')}}">
+    
+</div>
+{% endblock %}

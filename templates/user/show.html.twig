@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+    <div class="content_ctn">
+    <div class="show_client_ctn">
+    <h1>Détails du client {{user.nom}} {{user.prenom}} <img class="icon" src="{{ asset('img/user.png')}}"></h1>
+    <table class="table table-secondary w-75">
+        <tbody>
+            <tr>
+                <th>Nom d'utilisateur :</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Nom :</th>
+                <td>{{ user.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom :</th>
+                <td>{{ user.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Adresse :</th>
+                <td>{{ user.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Ville :</th>
+                <td>{{ user.ville }}</td>
+            </tr>
+            <tr>
+                <th>Type du client :</th>
+                <td>{{ user.typeClient ? 'Entreprise' : 'Particulier' }}</td>
+            </tr>
+            <tr>
+                <th>Code postal :</th>
+                <td>{{ user.cp }}</td>
+            </tr>
+        </tbody>
+    </table>
+ <div class="d-flex w-50 mx-auto justify-content-around align-items-center mb-4">
+       <a class="btn btn-primary mt-2" href="{{ path('user_index') }}">Retour </a>
+
+        <a class="btn btn-success mt-2"href="{{ path('user_edit', {'id': user.id}) }}">Modifier le client</a>
+
+    {{ include('user/_delete_form.html.twig') }}
+    </div>
+     </div>
+     </div>
+{% endblock %}

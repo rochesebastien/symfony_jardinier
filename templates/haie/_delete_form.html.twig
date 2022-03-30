@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('haie_delete', {'id': haie.code}) }}" onsubmit="return confirm('return confirm('Etes-vous sur vouloir supprimer cette haie ?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ haie.code) }}">
+    <button class="btn btn-danger mt-2">Suprimer</button>
+</form>
